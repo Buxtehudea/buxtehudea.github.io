@@ -4,176 +4,233 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Laineen Taksi</title>
+    <title>Portfolio - Heikki Koljonen</title>
+    <meta name="description" content="Portfolio showcasing my projects and work">
+    <meta name="author" content="Heikki Koljonen">
+
+
+    <link rel="preload" href="style.css" as="style">
 
     <link rel="stylesheet" media="all" href="style.css" type="text/css" />
-
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
-<body>
-    <!-- Navigaatio -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#johdanto">Etusivu</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="row"></div>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#autot">Autot</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#kuljettajat">Kuljettajat</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#tilausajot">Tilausajot</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#yhteystiedot">Yhteystiedot</a>
-                    </li>
-                </ul>
-            </div>
+<body class="bg-light">
+        <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#home">
+                <i class="fas fa-code me-2"></i>Portfolio - Heikki Koljonen
+            </a>
         </div>
     </nav>
 
-    <!-- Johdanto -->
-    <div id="johdanto" class="container-fluid align"
-        style="background-image: url('Images/bg_main.jpeg'); background-size: cover; background-position: bottom center; height: 740px; padding: 0">
+    <main>
+        <!-- Projects Section -->
+        <section id="projects">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center mb-5">
+                        <h2 class="section-title">Featured Projects</h2>
+                        <p class="lead">I’m a UI/UX Designer with over 15 years of experience in game development.</p>
+                    </div>
+                </div>
+                <div class="row g-4">
+                    <!-- Project 1 -->
+                    <div class="col-lg-6">
+                        <div class="project-card h-100">
+                            <div class="project-image">
+                                <img src="Images/KeyArt_FriendsAndDragons.png" alt="Friends & Dragons"
+                                    class="img-fluid">
+                                <div class="project-overlay">
+                                    <div class="project-links">
+                                        <a href="https://apps.apple.com/fi/app/friends-dragons-puzzle-rpg/id1522259907"
+                                            class="btn btn-primary me-2" target="_blank">
+                                            <i class="fab fa-apple me-1"></i> App Store
+                                        </a>
+                                        <a href="https://play.google.com/store/apps/details?id=com.playsome.friendsanddragons"
+                                            class="btn btn-outline-light me-2" target="_blank">
+                                            <i class="fab fa-google-play me-1"></i> Google Play
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="project-content">
+                                <h4>Friends & Dragons</h4>
+                                <p>Designed and implemented UI/UX in Unity, creating wireframes, prototypes, and UI
+                                    flows. Also worked on live ops event content in close collaboration with designers
+                                    and programmers.</p>
 
-        <div id="j1" class="h-75 d-flex flex-column justify-content-center align-items-center">
-            <h1>Laineen Taksi</h1>
-            <h1>040 123 4567</h1>
-        </div>
-        <div id="j2" class="h-25 d-flex flex-column justify-content-end align-items-center gradient">
-            <p>Log praxis messenger bag pinterest cronut chicharrones leggings franzen offal church-key shabby chic
-                asymmetrical.</p>
-        </div>
-    </div>
+                            </div>
+                        </div>
+                    </div>
 
-    <!-- Autot -->
-    <div id="autot" class="container-fluid" style="height: 540px">
-        <div class="h-100 row">
-            <div class="col-lg-7 col-md-12" style="padding: 48px">
-                <h1 style="padding-bottom: 16px;">Autot</h1>
-                <p>Mercedes-Benz E-malli tarjoaa ylellistä mukavuutta ja edistynyttä teknologiaa, jotta matkasi olisi
-                    mahdollisimman sujuva ja nautinnollinen.</p>
-                <p style="padding-bottom: 32px;">Volkswagen Transporter -tila-auto (1+8) tarjoaa tilavan ja mukavan
-                    kyydin, joka täyttää kaikki
-                    taksimatkan tarpeet niin yksittäisille matkustajille kuin suuremmillekin ryhmille.</p>
-                <a href="#tilausajot"><button id="scroll" type="button" class="btn btn-primary w-75"
-                        style="padding: 16px; font-size: large;">Tilaa Taksi</button></a>
-            </div>
-            <div class="col-lg-5 d-none d-lg-block">
-                <div class="h-50 row"
-                    style="background-image: url('Images/car_01.jpeg'); background-size: cover; background-position: center;">
-                </div>
-                <div class="h-50 row"
-                    style="background-image: url('Images/car_02.jpeg'); background-size: cover; background-position: center;">
-                </div>
-            </div>
-        </div>
-    </div>
+                    <!-- Project 2 -->
+                    <div class="col-lg-6">
+                        <div class="project-card h-100">
+                            <div class="project-image">
+                                <img src="Images/KeyArt_OurWorld.jpg" alt="The Walking Dead: Our World"
+                                    class="img-fluid">
+                                <div class="project-overlay">
+                                    <div class="project-links">
+                                        <a href="https://apkpure.com/the-walking-dead-our-world-for-android/com.nextgames.android.ourworld "
+                                            class="btn btn-outline-light me-2" target="_blank">
+                                            <i class="fas fa-external-link-alt me-1"></i> View APK
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="project-content">
+                                <h4>The Walking Dead: Our World</h4>
+                                <p>Led live ops UI/UX design for this location-based game, implementing UI in Unity and
+                                    designing flows and features with stakeholders. Created wireframes, prototypes, and
+                                    UI assets that supported numerous feature updates and improvements.</p>
 
+                            </div>
+                        </div>
+                    </div>
 
-    <!-- Kuljettajat -->
-    <div id="kuljettajat" class="container-fluid" style="height: 540px; background-color: #191919;">
-        <div class="h-100 row">
-            <div class="col-lg-5 d-none d-lg-block">
-                <div class="h-50 row"
-                    style="background-image: url('Images/person_01.jpeg'); background-size: cover; background-position: center;">
-                </div>
-                <div class="h-50 row"
-                    style="background-image: url('Images/person_02.jpeg'); background-size: cover; background-position: center;">
-                </div>
-            </div>
-            <div class="col-lg-7 col-md-12 text-light" style="padding: 48px">
-                <h1 style="padding-bottom: 16px;">Kuljettajat</h1>
-                <p>Tutustu kokeneisiin taksinkuljettajiimme, joilla on yhteenlaskettuna yli 100 vuoden laaja kokemus,
-                    tarjoten luotettavaa ja asiantuntevaa palvelua jokaiselle matkustajalle.</p>
-                <p>Messenger bag vinyl banh mi, franzen bushwick trust fund banjo kale chips chia shabby chic ramps
-                    biodiesel.</p>
-                <p>Vegan portland chambray gatekeep cardigan, venmo synth narwhal squid art party. Praxis viral grailed
-                    vice.</p>
-            </div>
-        </div>
-    </div>
+                    <!-- Project 3 -->
+                    <div class="col-lg-6">
+                        <div class="project-card h-100">
+                            <div class="project-image">
+                                <img src="Images/KeyArt_BattleTanks.png" alt="Battle Tanks" class="img-fluid">
+                                <div class="project-overlay">
+                                    <div class="project-links">
+                                        <a href="https://apkpure.com/battle-tanks/net.wargaming.wartanks"
+                                            class="btn btn-outline-light me-2" target="_blank">
+                                            <i class="fas fa-external-link-alt me-1"></i> View APK
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="project-content">
+                                <h4>Battle Tanks</h4>
+                                <p>Redesigned and implemented the full UI for this ambitious midcore free-to-play game,
+                                    collaborating with Wargaming Berlin UI team. Responsibilities included Unity
+                                    implementation, UI flows, feature design, and creation of UI art assets.</p>
+                                <p><a href="https://drive.google.com/file/d/10vXoS0oOoqHTGwNlLxNEKrsRtr3Kqohx" target="_blank" class="video-link"><i class="fas fa-external-link-alt me-1"></i> UI prototypes (2019)</a></p>
+                            </div>
+                        </div>
+                    </div>
 
-    <!-- Tilausajot -->
-    <form>
-        <div id="tilausajot" class="container-fluid" style="height:540px; padding: 48px;">
-            <div class="row">
-                <div class="col-12">
-                    <h1 style="text-align: center; padding-bottom: 16px;">Tilausajot</h1>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-3 d-none d-lg-block"></div>
-                <div class="form-group col-lg-3 col-md-6" style="padding-bottom: 16px;">
-                    <input type="text" class="form-control" id="mista" placeholder="Mistä">
-                </div>
-                <div class="form-group col-lg-3 col-md-6" style="padding-bottom: 16px;">
-                    <input type="text" class="form-control" id="mihin" placeholder="Minne">
-                </div>
-                <div class="col-lg-3 d-none d-lg-block"></div>
-            </div>
-            <div class="row">
-                <div class="col-lg-3 d-none d-lg-block"></div>
-                <div class="form-group col-lg-3 col-md-6" style="padding-bottom: 16px;">
-                    <input id="pvm" class="form-control" type="date" />
-                </div>
-                <div class="form-group col-lg-3 col-md-6" style="padding-bottom: 16px;">
-                    <input id="klo" type="time" class="form-control" name="klo" required />
-                </div>
-                <div class="col-lg-3 d-none d-lg-block"></div>
-            </div>
-            <div class="row" style="padding-bottom: 32px;">
-                <div class="col-lg-3 d-none d-lg-block"></div>
-                <div class="form-group col-lg-6 col-md-12">
-                    <textarea class="form-control" id="extra" placeholder="Lisätietoja" rows="3"></textarea>
-                </div>
-                <div class="col-lg-3 d-none d-lg-block"></div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 col-md-2"></div>
-                <div class="col-lg-4 col-md-8 text-center"><button id="tilaa-taksi" type="submit"
-                        class="btn btn-primary w-100" style="padding: 16px; font-size: large;">Tilaa Taksi</button>
-                </div>
-                <div class="col-lg-4 col-md-2"></div>
-            </div>
-        </div>
-    </form>
+                    <!-- Project 4 -->
+                    <div class="col-lg-6">
+                        <div class="project-card h-100">
+                            <div class="project-image">
+                                <img src="Images/KeyArt_CriticalOps.jpg" alt="Critical Ops: Reloaded" class="img-fluid">
+                                <div class="project-overlay">
+                                    <div class="project-links">
+                                        <a href="https://itunes.apple.com/us/app/critical-ops/id1017717218"
+                                            class="btn btn-primary me-2" target="_blank">
+                                            <i class="fab fa-apple me-1"></i> App Store
+                                        </a>
+                                        <a href="https://play.google.com/store/apps/details?id=com.criticalforceentertainment.criticalops"
+                                            class="btn btn-outline-light me-2" target="_blank">
+                                            <i class="fab fa-google-play me-1"></i> Google Play
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="project-content">
+                                <h4>Critical Ops: Reloaded</h4>
+                                <p>Designed wireframes, prototypes, and UI flows for the Asian market in close
+                                    collaboration with publisher NHN Entertainment. Also contributed to the design and
+                                    testing of internal Unity UI tools, working with the lead designer, lead artist, and
+                                    UI art team on new features.</p>
+                                <p><a href="https://drive.google.com/file/d/1bWc59pDNksfBySkGjnA1SKFB9ogOCtHu/" target="_blank" class="video-link"><i class="fas fa-external-link-alt me-1"></i> Critical Ops: Reloaded UI prototypes (2018)</a></p>
+                            </div>
+                        </div>
+                    </div>
 
-    <!-- Yhteystiedot -->
-    <div id="yhteystiedot" class="container-fluid" style="height: 540px; background-color: #191919; padding: 48px;">
-        <div class="row">
-            <div class="col-12 text-light">
-                <h1 style="text-align: center; padding-bottom: 16px;">Yhteystiedot</h1>
+                    <!-- Project 5 -->
+                    <div class="col-lg-6">
+                        <div class="project-card h-100">
+                            <div class="project-image">
+                                <img src="Images/KeyArt_BadPiggies.png" alt="Bad Piggies" class="img-fluid">
+                                <div class="project-overlay">
+                                    <div class="project-links">
+                                        <a href="https://apps.apple.com/zw/app/bad-piggies/id533451786"
+                                            class="btn btn-primary me-2" target="_blank">
+                                            <i class="fab fa-apple me-1"></i> App Store
+                                        </a>
+                                        <a href="https://play.google.com/store/apps/details?id=com.rovio.BadPiggies"
+                                            class="btn btn-outline-light me-2" target="_blank">
+                                            <i class="fab fa-google-play me-1"></i> Google Play
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="project-content">
+                                <h4>Bad Piggies</h4>
+                                <p>Contributed to updates 1.6.0–2.3.0, transitioning the game from premium to
+                                    free-to-play. Designed and implemented new systems including economy, crafting,
+                                    progression, PvP gameplay, and levels, while also handling project management, UX
+                                    design, and Unity implementation in a small team.</p>
+                                <p><a href="https://youtu.be/PvELWnm6aA0" target="_blank" class="video-link"><i class="fas fa-external-link-alt me-1"></i> Bad Piggies - New Crazy Custom
+                                        Contraptions update</a></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 6 -->
+                    <div class="col-lg-6">
+                        <div class="project-card h-100">
+                            <div class="project-image">
+                                <img src="Images/KeyArt_Other.jpg" alt="Other Projects" class="img-fluid">
+                            </div>
+                            <div class="project-content">
+                                <h4>Other Projects</h4>
+                                <p>Created art and level design for mobile games and worked on numerous smaller games,
+                                    prototypes, and demos across iOS, Android, PC, and other platforms. Notably, my
+                                    first game Downbound became the most downloaded iOS app in France in early 2011.</p>
+                                <p><a href="https://youtu.be/nxeTxUqQVPM" target="_blank" class="video-link"><i class="fas fa-external-link-alt me-1"></i> Unity pack opening sequence (2018)</a></p>
+                            </div>
+                        </div>
+                    </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-4">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2025 Heikki Koljonen. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/heikkikoljonen/" class="text-light me-3"
+                            aria-label="LinkedIn">
+                            <i class="fab fa-linkedin fa-lg"></i>
+                        </a>
+                        <a href="mailto:koljonen.heikki@gmail.com" class="text-light" aria-label="Email">
+                            <i class="fas fa-envelope fa-lg"></i>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-lg-2 d-none d-lg-block"></div>
-            <div class="col-lg-8 col-md-12 text-light">
-                <p style="text-align: center; padding-bottom: 16px;">Olemme täällä sinua varten! Jos tarvitset apua
-                    taksin tilaamisessa tai sinulla on kysyttävää palveluistamme, ota rohkeasti yhteyttä
-                    asiakaspalveluumme sähköpostitse [<a href="#">asiakaspalvelu@laineentaksi.fi</a>] tai soita meille -
-                    palvelemme sinua mielellämme.</p>
+    </footer>
+
+    <!-- Video Modal -->
+    <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content bg-dark">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title text-light" id="videoModalLabel">Video</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-0">
+                    <div class="ratio ratio-16x9">
+                        <iframe id="videoFrame" src="" allow="autoplay; encrypted-media; fullscreen" allowfullscreen title="Embedded video"></iframe>
+                    </div>
+                </div>
             </div>
-            <div class="col-lg-2 d-none d-lg-block"></div>
-        </div>
-        <div class="row">
-            <div class="col-lg-3 d-none d-lg-block"></div>
-            <div class="col-lg-3 col-md-6 text-primary">
-                <h1 style="text-align: center">040 123 4567</h1>
-            </div>
-            <div class="col-lg-3 col-md-6 text-primary">
-                <h1 style="text-align: center">040 890 1234</h1>
-            </div>
-            <div class="col-lg-3 d-none d-lg-block"></div>
         </div>
     </div>
 
@@ -182,20 +239,76 @@
         crossorigin="anonymous"></script>
 
     <script>
-        var button = document.getElementById("tilaa-taksi");
-        button.onclick = function () {
-            button.innerHTML = "Taksi tilattu!";
-            document.getElementById("tilaa-taksi").disabled = true;
-        };
+    (function() {
+        function toYouTubeEmbed(url) {
+            try {
+                const u = new URL(url);
+                if (u.hostname.includes('youtu.be')) {
+                    const id = u.pathname.slice(1);
+                    return `https://www.youtube.com/embed/${id}`;
+                }
+                if (u.hostname.includes('youtube.com')) {
+                    if (u.pathname === '/watch') {
+                        const id = u.searchParams.get('v');
+                        if (id) return `https://www.youtube.com/embed/${id}`;
+                    }
+                    if (u.pathname.startsWith('/shorts/')) {
+                        const id = u.pathname.split('/')[2];
+                        if (id) return `https://www.youtube.com/embed/${id}`;
+                    }
+                    if (u.pathname.startsWith('/embed/')) {
+                        return url;
+                    }
+                }
+            } catch (e) {}
+            return null;
+        }
 
-        var button2 = document.getElementById("scroll");
-        button2.onclick = function () {
-            var button = document.getElementById("tilaa-taksi");
-            button.innerHTML = "Tilaa Taksi";
-            document.getElementById("tilaa-taksi").disabled = false;
-        };
+        function toDriveEmbed(url) {
+            try {
+                const u = new URL(url);
+                if (!u.hostname.includes('drive.google.com')) return null;
+                // Patterns: /file/d/FILE_ID/view, open?id=FILE_ID, uc?id=FILE_ID
+                let fileId = null;
+                const parts = u.pathname.split('/');
+                const fileIndex = parts.indexOf('d');
+                if (parts.includes('file') && fileIndex !== -1 && parts[fileIndex + 1]) {
+                    fileId = parts[fileIndex + 1];
+                }
+                if (!fileId) fileId = u.searchParams.get('id');
+                if (fileId) {
+                    return `https://drive.google.com/file/d/${fileId}/preview`;
+                }
+            } catch (e) {}
+            return null;
+        }
+
+        function toEmbedUrl(originalUrl) {
+            return toYouTubeEmbed(originalUrl) || toDriveEmbed(originalUrl);
+        }
+
+        const modalEl = document.getElementById('videoModal');
+        const iframe = document.getElementById('videoFrame');
+        if (!modalEl || !iframe) return;
+        const modal = new bootstrap.Modal(modalEl);
+
+        document.addEventListener('click', function(ev) {
+            const link = ev.target.closest('a.video-link');
+            if (!link) return;
+            const href = link.getAttribute('href');
+            const embed = toEmbedUrl(href);
+            if (!embed) return; // let normal navigation happen
+            ev.preventDefault();
+            const src = embed + (embed.includes('?') ? '&' : '?') + 'autoplay=1&rel=0';
+            iframe.src = src;
+            modal.show();
+        });
+
+        modalEl.addEventListener('hidden.bs.modal', function() {
+            iframe.src = '';
+        });
+    })();
     </script>
-
 </body>
 
 </html>

@@ -113,11 +113,11 @@ h1, h2, h3, h4, h5, h6 {
     transition: var(--transition);
 }
 
-.project-image:hover .project-overlay {
+.project-card:hover .project-overlay {
     opacity: 1;
 }
 
-.project-image:hover img {
+.project-card:hover .project-image img {
     transform: scale(1.1);
 }
 

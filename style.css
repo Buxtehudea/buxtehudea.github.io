@@ -121,7 +121,6 @@ h6 {
 }
 
 .project-image-3 img {
-  margin-top: 25px;
   height: 200%;
 }
 
@@ -144,7 +143,7 @@ h6 {
   opacity: 1;
 }
 
-.project-card:hover .project-image img, .project-image-3 img {
+.project-card:hover .project-image img, .project-card:hover .project-image-3 img {
   transform: scale(1.1);
 }
 
@@ -183,19 +182,6 @@ footer .row {
   border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-@media (max-width: 768px) {
-  footer .social-links {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.75rem;
-  }
-
-  footer p {
-    margin-bottom: 0.5rem;
-  }
-}
-
 a {
   color: var(--primary-color) !important;
 }
@@ -212,6 +198,51 @@ a {
 .social-links a:hover {
   color: var(--primary-color) !important;
   transform: translateY(-2px);
+}
+
+.btn:hover, .btn.btn-outline-light.active, .btn.btn-outline-light:active {
+  background-color: var(--dark-color) !important;
+  color: #fff !important;
+  border: 1px solid rgba(0, 0, 0, 0.05) !important;
+}
+
+.btn-primary {
+  border: 1px solid rgba(0, 0, 0, 0.05) !important;
+}
+
+.btn-primary {
+  background-color: #fff !important;
+  color: var(--dark-color) !important;
+}
+
+.btn-outline-light {
+  color: rgba(255, 255, 255, 0.9) !important;
+  border: 1px solid rgba(255, 255, 255, 0.9) !important;
+}
+
+.btn-outline-light:focus {
+  color: var(--dark-color) !important;
+}
+
+.btn:focus,
+.form-control:focus,
+.nav-link:focus,
+a:focus {
+  outline: 2px solid var(--custom-light-gray) !important;
+  outline-offset: 2px;
+}
+
+@media (max-width: 768px) {
+  footer .social-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+  }
+
+  footer p {
+    margin-bottom: 0.5rem;
+  }
 }
 
 @media (max-width: 768px) {
@@ -242,40 +273,6 @@ a {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-}
-
-.btn:hover, .btn.btn-outline-light.active, .btn.btn-outline-light:active {
-  background-color: var(--dark-color) !important;
-  color: #fff !important;
-  border: 1px solid rgba(0, 0, 0, 0.05) !important;
-  transform: translateY(-2px);
-  transition: var(--transition);
-}
-
-.btn-primary {
-  border: 1px solid rgba(0, 0, 0, 0.05) !important;
-}
-
-.btn-primary {
-  background-color: #fff !important;
-  color: var(--dark-color) !important;
-}
-
-.btn-outline-light {
-  color: rgba(255, 255, 255, 0.9) !important;
-  border: 1px solid rgba(255, 255, 255, 0.9) !important;
-}
-
-.btn-outline-light:focus {
-  color: var(--dark-color) !important;
-}
-
-.btn:focus,
-.form-control:focus,
-.nav-link:focus,
-a:focus {
-  outline: 2px solid var(--custom-light-gray) !important;
-  outline-offset: 2px;
 }
 
 @media print {

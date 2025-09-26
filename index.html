@@ -219,15 +219,15 @@
   <!-- Video Modal -->
   <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-xl modal-dialog-centered">
-      <div class="modal-content bg-dark">
-        <div class="modal-header border-0">
-          <h5 class="modal-title text-light" id="videoModalLabel">Video</h5>
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      <div class="modal-content video-modal">
+        <div class="modal-header align-items-center">
+          <h5 class="modal-title" id="videoModalLabel">Video</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body p-0">
-          <div class="ratio ratio-16x9">
+          <div class="video-frame ratio ratio-16x9">
             <iframe id="videoFrame" src="" allow="autoplay; encrypted-media; fullscreen" allowfullscreen
-              title="Embedded video"></iframe>
+              title="Embedded video" referrerpolicy="strict-origin-when-cross-origin"></iframe>
           </div>
         </div>
       </div>
@@ -270,15 +270,20 @@
           if (!u.hostname.includes('drive.google.com')) return null;
           // Patterns: /file/d/FILE_ID/view, open?id=FILE_ID, uc?id=FILE_ID
           let fileId = null;
-          const parts = u.pathname.split('/');
-          const fileIndex = parts.indexOf('d');
-          if (parts.includes('file') && fileIndex !== -1 && parts[fileIndex + 1]) {
-            fileId = parts[fileIndex + 1];
+          const pathMatch = u.pathname.match(/\/file\/d\/([^/]+)/);
+          if (pathMatch && pathMatch[1]) {
+            fileId = pathMatch[1];
           }
           if (!fileId) fileId = u.searchParams.get('id');
-          if (fileId) {
-            return `https://drive.google.com/file/d/${fileId}/preview`;
-          }
+          if (!fileId) return null;
+
+          const previewUrl = new URL(`https://drive.google.com/file/d/${fileId}/preview`);
+          u.searchParams.forEach((value, key) => {
+            if (key !== 'id') {
+              previewUrl.searchParams.set(key, value);
+            }
+          });
+          return previewUrl.toString();
         } catch (e) { }
         return null;
       }
@@ -299,8 +304,12 @@
         const embed = toEmbedUrl(href);
         if (!embed) return; // let normal navigation happen
         ev.preventDefault();
-        const src = embed + (embed.includes('?') ? '&' : '?') + 'autoplay=1&rel=0';
-        iframe.src = src;
+        const srcUrl = new URL(embed);
+        srcUrl.searchParams.set('autoplay', '1');
+        if (srcUrl.hostname.includes('youtube.com')) {
+          srcUrl.searchParams.set('rel', '0');
+        }
+        iframe.src = srcUrl.toString();
         modal.show();
       });
 

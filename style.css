@@ -1,6 +1,6 @@
 :root {
     --primary-color: #13ABFF; /* Line Under Section Title */
-    --secondary-color: #000; /* Card Body */
+    --secondary-color: #6c757d; /* Card Body */
     --success-color: #198754;
     --danger-color: #dc3545;
     --warning-color: #ffc107;
@@ -183,6 +183,10 @@ footer .row { align-items: center; }
   }
 }
 
+a {
+  color: var(--primary-color) !important;
+}
+
 /* Optional: bigger tap targets */
 .social-links a { 
     color: var(--custom-black) !important;
@@ -227,27 +231,34 @@ footer .row { align-items: center; }
     }
 }
 
+.btn:hover, .btn-primary:active, .btn-outline-light:active {
+    background-color: var(--custom-black) !important;
+    color: #fff !important;
+    border: 1px solid rgba(0, 0, 0, 0.05) !important;
+    transform: translateY(-2px);
+    transition: var(--transition);
+}
+
 .btn-primary, .btn-primary:hover, .btn-primary:active,  .btn-primary:visited {
     border: 1px solid rgba(0, 0, 0, 0.05) !important;
 }
 
-.btn-primary,  .btn-primary:visited {
-    background-color: var(--custom-black) !important;
-}
-
-.btn-primary:hover, .btn-primary:active {
+.btn-primary, .btn-primary:visited {
     background-color: #fff !important;
     color: var(--custom-black) !important;
 }
 
-.btn-outline-light:hover {
-    color: var(--custom-black) !important;
+.btn-outline-light {
+    color: rgba(255, 255, 255, 0.9) !important;
+    border: 1px solid rgba(255, 255, 255, 0.9) !important;
 }
 
-.btn:focus,
-.form-control:focus,
-.nav-link:focus {
-    outline: 2px solid var(--primary-color);
+.btn-outline-light:focus {
+  color: var(--custom-black) !important;
+}
+
+.btn:focus, .form-control:focus, .nav-link:focus, a:focus {
+    outline: 2px solid var(--custom-light-gray) !important;
     outline-offset: 2px;
 }
 

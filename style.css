@@ -1,13 +1,16 @@
 :root {
-    --primary-color: #0d6efd;
-    --secondary-color: #6c757d;
+    --primary-color: #13ABFF; /* Line Under Section Title */
+    --secondary-color: #000; /* Card Body */
     --success-color: #198754;
     --danger-color: #dc3545;
     --warning-color: #ffc107;
     --info-color: #0dcaf0;
     --light-color: #f8f9fa; 
-    --dark-color: #212529;
-    --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --dark-color: #212121; /* Card Titles */
+    --custom-primary-color:  rgba(19, 171, 255, 0.9);
+    --custom-black: rgba(0, 0, 0, 0.87);
+    --custom-light-gray: #F3F4F5;
+    --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     --transition: all 0.3s ease;
     --border-radius: 8px;
     --box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
@@ -30,7 +33,6 @@ body {
     font-family: var(--font-family);
     line-height: 1.6;
     color: var(--dark-color);
-    padding-top: 56px;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -40,7 +42,7 @@ body {
 
 main {
     flex: 1 0 auto;
-    background-image: url('Images/Bg_TopLeft.png'), url('Images/Bg_BottomRight.png');
+    background-image: url('Images/Bg_TopLeft.webp'), url('Images/Bg_BottomRight.webp');
     background-repeat: no-repeat, no-repeat;
     background-position: left top, right bottom;
     background-size: auto, auto;
@@ -55,8 +57,8 @@ h1, h2, h3, h4, h5, h6 {
 .section-title {
     position: relative;
     display: inline-block;
-    margin-bottom: 2rem;
     margin-top: 4rem;
+    margin-bottom: 1rem;
 }
 
 .section-title::after {
@@ -89,10 +91,23 @@ h1, h2, h3, h4, h5, h6 {
 .project-image {
     position: relative;
     overflow: hidden;
-    height: 250px;
+    height: 256px;
+}
+
+.project-image-2 {
+    position: relative;
+    overflow: hidden;
+    height: 256px;
 }
 
 .project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.project-image-2 img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -105,7 +120,7 @@ h1, h2, h3, h4, h5, h6 {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(13, 110, 253, 0.9);
+    background: var(--custom-primary-color);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -113,7 +128,8 @@ h1, h2, h3, h4, h5, h6 {
     transition: var(--transition);
 }
 
-.project-card:hover .project-overlay {
+.project-card:hover .project-overlay,
+.project-card:focus-within .project-overlay {
     opacity: 1;
 }
 
@@ -121,7 +137,9 @@ h1, h2, h3, h4, h5, h6 {
     transform: scale(1.1);
 }
 
-.project-links .btn { margin: 0.25rem; border-radius: var(--border-radius); }
+.project-card:focus-within {
+    box-shadow: var(--box-shadow-lg);
+}
 
 .project-content {
     padding: 1.5rem;
@@ -140,13 +158,18 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 footer {
-    background: var(--dark-color) !important;
     margin-top: auto;
+    color: #000;
 }
 
 footer .row { align-items: center; }
 
-/* Better mobile layout for the footer */
+.panel-footer.panel-custom {
+    background: var(--custom-light-gray);
+    color: var(--dark-color);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
 @media (max-width: 768px) {
   footer .social-links {
     display: flex;
@@ -161,7 +184,9 @@ footer .row { align-items: center; }
 }
 
 /* Optional: bigger tap targets */
-.social-links a { padding: 0.25rem; }
+.social-links a { 
+    color: var(--custom-black) !important;
+}
 
 .social-links a {
     transition: var(--transition);
@@ -200,6 +225,23 @@ footer .row { align-items: center; }
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
     }
+}
+
+.btn-primary, .btn-primary:hover, .btn-primary:active,  .btn-primary:visited {
+    border: 1px solid rgba(0, 0, 0, 0.05) !important;
+}
+
+.btn-primary,  .btn-primary:visited {
+    background-color: var(--custom-black) !important;
+}
+
+.btn-primary:hover, .btn-primary:active {
+    background-color: #fff !important;
+    color: var(--custom-black) !important;
+}
+
+.btn-outline-light:hover {
+    color: var(--custom-black) !important;
 }
 
 .btn:focus,

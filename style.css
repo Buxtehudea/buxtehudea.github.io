@@ -82,7 +82,7 @@ h6 {
   backdrop-filter: blur(10px);
 }
 
-.project-card {
+.project-card, .project-card-2 {
   background: white;
   border-radius: var(--border-radius);
   overflow: hidden;

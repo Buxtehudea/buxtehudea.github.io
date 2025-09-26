@@ -38,7 +38,6 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-
   scroll-behavior: smooth;
 }
 
@@ -77,10 +76,6 @@ h6 {
   height: 3px;
   background: var(--primary-color);
   border-radius: 2px;
-}
-
-.navbar {
-  backdrop-filter: blur(10px);
 }
 
 .project-card, .project-card-2 {
@@ -186,20 +181,6 @@ a {
   color: var(--primary-color) !important;
 }
 
-.social-links a {
-  color: var(--dark-color) !important;
-}
-
-.social-links a {
-  transition: var(--transition);
-  display: inline-block;
-}
-
-.social-links a:hover {
-  color: var(--primary-color) !important;
-  transform: translateY(-2px);
-}
-
 .btn:hover, .btn.btn-outline-light.active, .btn.btn-outline-light:active {
   background-color: var(--dark-color) !important;
   color: #fff !important;
@@ -230,6 +211,20 @@ a {
 a:focus {
   outline: 2px solid var(--custom-light-gray) !important;
   outline-offset: 2px;
+}
+
+.social-links a {
+  color: var(--dark-color) !important;
+}
+
+.social-links a {
+  transition: var(--transition);
+  display: inline-block;
+}
+
+.social-links a:hover {
+  color: var(--primary-color) !important;
+  transform: translateY(-2px);
 }
 
 @media (max-width: 768px) {

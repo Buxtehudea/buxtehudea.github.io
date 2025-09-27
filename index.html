@@ -21,6 +21,7 @@
 
 <body class="bg-light">
   <main id="main-content">
+
     <!-- Projects Section -->
     <section id="projects">
       <div class="container">
@@ -31,6 +32,7 @@
           </div>
         </div>
         <div class="row g-4">
+          
           <!-- Project 1 -->
           <div class="col-lg-6">
             <div class="project-card h-100">
@@ -237,78 +239,80 @@
 
   <script>
     (function () {
-      function toYouTubeEmbed(url) {
-        try {
-          const u = new URL(url);
-          if (u.hostname.includes('youtu.be')) {
-            const id = u.pathname.slice(1);
-            return `https://www.youtube.com/embed/${id}`;
-          }
-          if (u.hostname.includes('youtube.com')) {
-            if (u.pathname === '/watch') {
-              const id = u.searchParams.get('v');
-              if (id) return `https://www.youtube.com/embed/${id}`;
-            }
-            if (u.pathname.startsWith('/shorts/')) {
-              const id = u.pathname.split('/')[2];
-              if (id) return `https://www.youtube.com/embed/${id}`;
-            }
-            if (u.pathname.startsWith('/embed/')) {
-              return url;
-            }
-          }
-        } catch (e) { }
-        return null;
-      }
-
-      function toDriveEmbed(url) {
-        try {
-          const u = new URL(url);
-          if (!u.hostname.includes('drive.google.com')) return null;
-          // Patterns: /file/d/FILE_ID/view, open?id=FILE_ID, uc?id=FILE_ID
-          let fileId = null;
-          const pathMatch = u.pathname.match(/\/file\/d\/([^/]+)/);
-          if (pathMatch && pathMatch[1]) {
-            fileId = pathMatch[1];
-          }
-          if (!fileId) fileId = u.searchParams.get('id');
-          if (!fileId) return null;
-
-          const previewUrl = new URL(`https://drive.google.com/file/d/${fileId}/preview`);
-          u.searchParams.forEach((value, key) => {
-            if (key !== 'id') {
-              previewUrl.searchParams.set(key, value);
-            }
-          });
-          return previewUrl.toString();
-        } catch (e) { }
-        return null;
-      }
-
-      function toEmbedUrl(originalUrl) {
-        return toYouTubeEmbed(originalUrl) || toDriveEmbed(originalUrl);
-      }
-
       const modalEl = document.getElementById('videoModal');
       const iframe = document.getElementById('videoFrame');
       if (!modalEl || !iframe) return;
-      const modal = new bootstrap.Modal(modalEl);
 
-      document.addEventListener('click', function (ev) {
-        const link = ev.target.closest('a.video-link');
-        if (!link) return;
-        const href = link.getAttribute('href');
-        const embed = toEmbedUrl(href);
-        if (!embed) return; // let normal navigation happen
-        ev.preventDefault();
-        const srcUrl = new URL(embed);
+      const modal = new bootstrap.Modal(modalEl);
+      const EMBED_RESOLVERS = [toYouTubeEmbed];
+
+      function toYouTubeEmbed(url) {
+        try {
+          const parsed = new URL(url);
+          const host = parsed.hostname.toLowerCase();
+
+          if (host.endsWith('youtu.be')) {
+            const id = parsed.pathname.slice(1);
+            return id ? `https://www.youtube.com/embed/${id}` : null;
+          }
+
+          if (!host.endsWith('youtube.com')) return null;
+
+          if (parsed.pathname === '/watch') {
+            const id = parsed.searchParams.get('v');
+            if (id) return `https://www.youtube.com/embed/${id}`;
+          }
+
+          if (parsed.pathname.startsWith('/shorts/')) {
+            const [, , id] = parsed.pathname.split('/');
+            if (id) return `https://www.youtube.com/embed/${id}`;
+          }
+
+          if (parsed.pathname.startsWith('/embed/')) {
+            return url;
+          }
+        } catch (error) {
+          return null;
+        }
+
+        return null;
+      }
+
+      function resolveEmbedUrl(originalUrl) {
+        for (const resolver of EMBED_RESOLVERS) {
+          const embed = resolver(originalUrl);
+          if (embed) return embed;
+        }
+        return null;
+      }
+
+      function withAutoplayParams(embedUrl) {
+        const srcUrl = new URL(embedUrl);
         srcUrl.searchParams.set('autoplay', '1');
         if (srcUrl.hostname.includes('youtube.com')) {
           srcUrl.searchParams.set('rel', '0');
         }
-        iframe.src = srcUrl.toString();
+        return srcUrl.toString();
+      }
+
+      function openVideoModal(embedUrl) {
+        iframe.src = withAutoplayParams(embedUrl);
         modal.show();
-      });
+      }
+
+      function handleLinkClick(event) {
+        const link = event.target.closest('a.video-link');
+        if (!link) return;
+
+        const href = link.getAttribute('href');
+        const embed = resolveEmbedUrl(href);
+        if (!embed) return;
+
+        event.preventDefault();
+        openVideoModal(embed);
+      }
+
+      document.addEventListener('click', handleLinkClick);
 
       modalEl.addEventListener('hidden.bs.modal', function () {
         iframe.src = '';

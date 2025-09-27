@@ -1,9 +1,8 @@
 :root {
-  --primary-color: #13ABFF; /* Line Under Section Title */
-  --secondary-color: #6c757d; /* Card Body */
-  --dark-color: #212529; /* Card Titles */
+  --primary-color: #13ABFF;
+  --secondary-color: #6c757d;
+  --dark-color: #212529;
   --custom-primary-color: rgba(19, 171, 255, 0.9);
-  /* --custom-black: rgba(0, 0, 0, 0.87); */
   --custom-light-gray: #F3F4F5;
   --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --transition: all 0.3s ease;
@@ -70,7 +69,8 @@ h6 {
   border-radius: 2px;
 }
 
-.project-card, .project-card-2 {
+.project-card,
+.project-card-2 {
   background: white;
   border-radius: var(--border-radius);
   overflow: hidden;
@@ -91,19 +91,24 @@ h6 {
   box-shadow: var(--box-shadow-lg);
 }
 
-.project-image, .project-image-2, .project-image-3 {
+.project-image,
+.project-image-2,
+.project-image-3 {
   position: relative;
   overflow: hidden;
   height: 256px;
 }
 
-.project-image img, .project-image-2 img, .project-image-3 img {
+.project-image img,
+.project-image-2 img,
+.project-image-3 img {
   width: 100%;
   object-fit: cover;
   transition: var(--transition);
 }
 
-.project-image img, .project-image-2 img {
+.project-image img,
+.project-image-2 img {
   height: 100%;
 }
 
@@ -130,7 +135,8 @@ h6 {
   opacity: 1;
 }
 
-.project-card:hover .project-image img, .project-card:hover .project-image-3 img {
+.project-card:hover .project-image img,
+.project-card:hover .project-image-3 img {
   transform: scale(1.1);
 }
 
@@ -244,11 +250,15 @@ a {
   color: var(--primary-color);
 }
 
-.btn:is(:hover, :focus),
-.btn.btn-outline-light:is(.active, :active) {
-  background-color: var(--dark-color);
-  color: #fff;
-  border: 1px solid rgba(0, 0, 0, 0.05);
+.btn:is(:hover, :focus) {
+  background-color: var(--dark-color) !important;
+  color: #fff !important;
+  border: 1px solid rgba(0, 0, 0, 0.05) !important;
+}
+
+.btn:is(.active, :active, .pressed) {
+  background-color: #fff !important;
+  color: var(--dark-color) !important;
 }
 
 .btn-primary {
